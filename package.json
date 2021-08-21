@@ -1,6 +1,6 @@
 {
   "name": "reanim",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "React hooks for animate.css",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
