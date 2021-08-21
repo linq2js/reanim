@@ -10,20 +10,14 @@
     "custom",
     "less"
   ],
-  "keywords": [
-    "animated",
-    "animation",
-    "hooks",
-    "motion",
-    "react",
-    "animate.css",
-    "typescript"
-  ],
   "scripts": {
     "build:js": "tsc",
     "build:css": "lessc --silent ./less/custom.less ./css/custom.css",
     "test": "jest",
     "clean": "rimraf lib/ custom/ css/",
+    "version:major": "npm version major",
+    "version:manor": "npm version manor",
+    "version:patch": "npm version patch",
     "prepublish": "npm run clean && npm run build:js && npm run build:css && npm run test"
   },
   "dependencies": {
@@ -44,5 +38,18 @@
   },
   "jest": {
     "preset": "ts-jest"
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/linq2js/reanim"
+  },
+  "keywords": [
+    "animated",
+    "animation",
+    "hooks",
+    "motion",
+    "react",
+    "animate.css",
+    "typescript"
+  ]
 }
