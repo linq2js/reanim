@@ -119,6 +119,7 @@ function useAnimFactory<TActions, TKey = any>(
   }
 
   useEffect(() => {
+    // execute callback after component rendered
     if (customAnimationCallbackRef.current) {
       const callback = customAnimationCallbackRef.current;
       customAnimationCallbackRef.current = undefined;

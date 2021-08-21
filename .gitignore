@@ -1,4 +1,4 @@
 node_modules
-./css
-./custom
-./lib
+css
+custom
+lib
