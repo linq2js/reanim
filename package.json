@@ -15,9 +15,9 @@
     "build:css": "lessc --silent ./less/custom.less ./css/custom.css",
     "test": "jest",
     "clean": "rimraf lib/ custom/ css/",
-    "version:major": "npm version major git-tag-version",
-    "version:manor": "npm version manor git-tag-version",
-    "version:patch": "npm version patch git-tag-version",
+    "version:major": "npm version major",
+    "version:manor": "npm version manor",
+    "version:patch": "npm version patch",
     "prepublish": "npm run clean && npm run build:js && npm run build:css && npm run test"
   },
   "dependencies": {
