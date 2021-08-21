@@ -1,0 +1,12 @@
+.reanim__collapsible {
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+}
+.reanim__collapsible.reanim__active::after {
+  content: "\2212";
+  visibility: hidden;
+}
+.reanim__reset {
+  animation-name: none !important;
+}

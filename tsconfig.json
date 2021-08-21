@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "declaration": true,
+    "outDir": "./",
+    "paths": {
+      "reanim": ["./src/lib"]
+    }
+  },
+  "include": ["./src/"],
+  "exclude": ["./src/**/*.test.ts"]
+}
