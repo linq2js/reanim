@@ -1,11 +1,15 @@
-import { AnimationOptions, AnimationConfigs } from "./types";
+import { AnimationOptions } from "./types";
 import getConfigs from "./getConfigs";
 import addPrefix from "./addPrefix";
+import mergeClasses from "./mergeClasses";
 
-export function animClass(options: AnimationOptions) {
+export function animClass(
+  options: AnimationOptions,
+  ...otherClasses: string[]
+) {
   const configs = getConfigs(options);
   const { type, delay, speed, repeat } = configs;
-  return [
+  return mergeClasses(
     "animate__animated",
     typeof type === "string"
       ? addPrefix(type)
@@ -19,12 +23,10 @@ export function animClass(options: AnimationOptions) {
     delay && `animate__delay-${delay}s`,
     speed && `animate__${speed}`,
     repeat && `animate__${repeat === "infinite" ? repeat : "repeat-" + repeat}`,
-  ].reduce(
-    (classes, value) => (value ? classes + " " + value : classes),
-    ""
-  ) as string;
+    ...otherClasses
+  );
 }
 
 export function animClasses(...options: AnimationOptions[]) {
-  return options.map(animClass);
+  return options.map((o) => animClass(o));
 }

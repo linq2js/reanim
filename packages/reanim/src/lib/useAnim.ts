@@ -10,6 +10,7 @@ import {
 import getConfigs from "./getConfigs";
 import isCustomAnimation from "./isCustomAnimation";
 import getTime from "./getTime";
+import mergeClasses from "./mergeClasses";
 
 export function useAnim<
   TActions extends { [key: string]: (...args: any[]) => void }
@@ -37,9 +38,13 @@ export function useAnim(...args: any[]): any {
       ? { default: args[1] }
       : args[1];
   if (typeof args[0] === "function") {
-    return useAnimFactory(args[0], options);
+    return useAnimFactory.call(null, args[0], options);
   }
-  const [getClass, getActions] = useAnimFactory(() => args[0], options);
+  const [getClass, getActions] = useAnimFactory.call(
+    null,
+    () => args[0],
+    options
+  );
   return [getClass(null), getActions(null)];
 }
 
@@ -52,7 +57,7 @@ function useAnimFactory<TActions, TKey = any>(
   const activeRef =
     useRef<{ key: TKey; options: AnimationOptions; done: boolean }>();
 
-  function getClass(key: TKey) {
+  function getClass(key: TKey, ...otherClasses: string[]) {
     const init = configs["of"];
     const initClass = init
       ? animClass(getConfigs(typeof init === "function" ? init(key) : init))
@@ -61,9 +66,8 @@ function useAnimFactory<TActions, TKey = any>(
       activeRef.current && activeRef.current.key === key
         ? animClass(activeRef.current.options)
         : "";
-    return initClass && contextClass
-      ? contextClass + " " + initClass
-      : contextClass || initClass;
+
+    return mergeClasses(initClass, contextClass, ...otherClasses);
   }
 
   function getActions(key: TKey) {

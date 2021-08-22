@@ -1,53 +1,5 @@
 {
-  "name": "reanim",
-  "version": "0.0.35",
-  "description": "React hooks for animate.css",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "css",
-    "custom",
-    "less"
-  ],
-  "scripts": {
-    "build:js": "tsc",
-    "build:css": "lessc --silent ./less/custom.less ./css/custom.css",
-    "test": "jest",
-    "clean": "rimraf lib/ custom/ css/",
-    "version:major": "npm version major",
-    "version:manor": "npm version manor",
-    "version:patch": "npm version patch",
-    "prepublish": "npm run clean && npm run build:js && npm run build:css && npm run test"
-  },
-  "dependencies": {},
   "devDependencies": {
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/react-hooks": "^7.0.1",
-    "jest": "^27.0.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-test-renderer": "^17.0.2",
-    "ts-jest": "^27.0.5",
-    "typescript": "^4.3.5",
-    "@types/jest": "27.0.1",
-    "rimraf": "^3.0.2",
-    "less": "4.1.1"
-  },
-  "jest": {
-    "preset": "ts-jest"
-  },
-  "license": "MIT",
-  "repository": {
-    "url": "https://github.com/linq2js/reanim"
-  },
-  "keywords": [
-    "animated",
-    "animation",
-    "hooks",
-    "motion",
-    "react",
-    "animate.css",
-    "typescript"
-  ]
+    "@types/jest": "27.0.1"
+  }
 }

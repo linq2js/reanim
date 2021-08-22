@@ -1,17 +1,15 @@
-node_modules/
-/packages/reanim/css/
-/packages/reanim/custom/
-/packages/reanim/lib/
-/packages/reanim-demo/src/reanim/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-.pnp
+# dependencies
+/node_modules
+/.pnp
 .pnp.js
 
 # testing
-coverage
+/coverage
 
 # production
-build
+/build
 
 # misc
 .DS_Store
